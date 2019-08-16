@@ -5,6 +5,7 @@ import axios from'axios';
 //import components
 import Characters from './Components/Characters/Characters'
 import Navbar from './Components/Navbar/Navbar'
+import CreateCharacter from './Components/CreateCharacter/CreateCharacter'
 
 //import stylesheets
 import 'reset-css'
@@ -83,6 +84,7 @@ export default class App extends Component {
     return(
       <div className="character-container">
         <Navbar />
+        <CreateCharacter />
         {mappedCharacters}
       </div>
     )

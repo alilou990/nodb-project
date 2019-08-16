@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
 
-export default class createCharacter extends Component {
+export default class CreateCharacter extends Component {
+    constructor(){
+        super();
+        this.state = {
+            charName: '',
+            charClass: '',
+            hitDie: '',
+            primaryAbility: '',
+            imgUrl: '',
+            playerName: ''
+        }
+    }
     render(){
         return(
             <div className="character-create-card">
