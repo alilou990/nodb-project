@@ -60,12 +60,7 @@ export default class App extends Component {
       .then(response => {
         this.setState({
           characters: response.data,
-          charName: '',
-          charClass: '',
-          hitDie: '',
-          primaryAbility: '',
-          imgUrl: '',
-          playerName: ''
+          
         })
       })
   }
