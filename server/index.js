@@ -13,8 +13,8 @@ app.use(cors());
 
 app.get('/api/characters', ctrl.getChar)
 app.post('/api/characters', ctrl.createChar);
-app.put('/api/characters/:id', ctrl.updatedClass, ctrl.updatedHitDie, ctrl.updatedPrimaryAbility, ctrl.updatedImgUrl, ctrl.updatedCharName, ctrl.updatedPlayerName);
-app.delete('/api/charachers/:id', ctrl.deleteChar);
+app.put('/api/characters/:id', ctrl.updateChar);
+app.delete('/api/characters/:id', ctrl.deleteChar);
 
 
 

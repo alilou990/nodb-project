@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import axios from'axios';
 
 
+
 //import components
 import Characters from './Components/Characters/Characters'
 import Navbar from './Components/Navbar/Navbar'
-import CreateCharacter from './Components/CreateCharacter/CreateCharacter'
+import CharacterCreator from './Components/CreateCharacter/CharacterCreator'
 
 //import stylesheets
 import 'reset-css'
@@ -34,7 +35,6 @@ export default class App extends Component {
   //custom methods
   getChar = () => {
     axios.get('/api/characters').then((response) => {
-      console.log(response.data)
       this.setState({
         characters: response.data
       })
@@ -45,9 +45,7 @@ export default class App extends Component {
   }
 
   createChar = (event) => {
-    event.preventDefault();
-
-    const body = {
+      const body = {
       charName: this.state.charName,
       charClass: this.state.charClass,
       hitDie: this.state.hitDie,
@@ -56,31 +54,60 @@ export default class App extends Component {
       playerName: this.state.playerName
     }
 
-    axios.post('/api/users', body)
+    axios.post('/api/characters', body)
       .then(response => {
         this.setState({
           characters: response.data,
-          
+          // charName: '',
+          // charClass: '',
+          // hitDie: '',
+          // primaryAbility: '',
+          // imgUrl: '',
+          // playerName: '',
+        })
+      })
+
+  };
+
+
+ updatedChar = (data) => {
+    this.setState({
+        characters: data
+    })
+}
+
+
+  deleteChar = (id) => {
+    axios.delete(`/api/characters/${id}`)
+      .then(response => {
+        this.setState({
+          characters: response.data,
         })
       })
   }
 
+  handleOnChange = (event) => {
+   
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+  }
 
   render(){
-
-   console.log(this.state.characters)
+    console.log(this.state)
     const mappedCharacters = this.state.characters.map((character, index) => {
         return( 
-        <Characters character={character} key={index} />
-        
+        <Characters character={character} key={index} updatedChar={this.updatedChar} deleteChar={this.deleteChar} handleOnChange={this.handleOnChange}/>
         )
       })
 
     return(
       <div className="character-container">
         <Navbar />
-        <CreateCharacter />
+        <CharacterCreator createChar={this.createChar} handleOnChange={this.handleOnChange} />
+        <div> 
         {mappedCharacters}
+        </div>
       </div>
     )
   }
