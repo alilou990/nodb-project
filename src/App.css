@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Lexend+Mega|Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Beth+Ellen|Long+Cang|Noto+Sans+JP&display=swap');
 
 .character-container {
     width: 100vw;
     min-height: 100vh;
-    background: #96A8B2;
+    background: #36393B;
     font-family: 'Noto Sans JP', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.character-display-parent {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
 }

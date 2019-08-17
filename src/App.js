@@ -70,11 +70,13 @@ export default class App extends Component {
   };
 
 
- updatedChar = (data) => {
+
+  updateChar = (data) => {
     this.setState({
-        characters: data
+      characters: data
     })
-}
+  }
+
 
 
   deleteChar = (id) => {
@@ -87,17 +89,16 @@ export default class App extends Component {
   }
 
   handleOnChange = (event) => {
-   
+   console.log(event.target.value)
       this.setState({
         [event.target.name]: event.target.value
       })
   }
 
   render(){
-    console.log(this.state)
     const mappedCharacters = this.state.characters.map((character, index) => {
         return( 
-        <Characters character={character} key={index} updatedChar={this.updatedChar} deleteChar={this.deleteChar} handleOnChange={this.handleOnChange}/>
+        <Characters character={character} key={index} updateChar={this.updateChar} deleteChar={this.deleteChar} handleOnChange={this.handleOnChange}/>
         )
       })
 
@@ -105,9 +106,8 @@ export default class App extends Component {
       <div className="character-container">
         <Navbar />
         <CharacterCreator createChar={this.createChar} handleOnChange={this.handleOnChange} />
-        <div> 
         {mappedCharacters}
-        </div>
+        
       </div>
     )
   }

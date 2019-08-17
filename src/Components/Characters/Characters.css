@@ -1,0 +1,47 @@
+.main-character-display-card {
+    width: 50%;
+    min-height: 50%;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: center;
+
+}
+
+.character-display {
+    width: 500px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    background: blue;
+    
+}
+
+.character-name {
+    font-size: 25px;
+    font-family: 'Beth Ellen', cursive;
+
+}
+
+.character-image {
+    max-height: 200px;
+    max-width: 175px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.character-info {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.character-info > .labels {
+    font-weight: bolder
+}

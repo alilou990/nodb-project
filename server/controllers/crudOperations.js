@@ -35,22 +35,24 @@ const createChar = (req, res) => {
 
 const updateChar = (req, res) => {
     const {id} = req.params;
-    const updatedChar = req.body
+    const updatedChar = req.body;
+    
 
-    let thisChar = characters.characters.find(characters => {
+    let thisChar = characters.characters.find((characters) => {
         characters.id === +id
     })
     
 
-    thisChar.charName = updatedChar.charName,
-    thisChar.charClass = updatedChar.charClass,
-    thisChar.hitDie = updatedChar.hitDie,
-    thisChar.primaryAbility = updatedChar.primaryAbility,
-    thisChar.imgUrl = updatedChar.imgUrl,
-    thisChar.playerName = updatedChar.playerName
+    thisChar.charName = updatedChar.editCharName,
+    thisChar.charClass = updatedChar.editCharClass,
+    thisChar.hitDie = updatedChar.editHitDie,
+    thisChar.primaryAbility = updatedChar.editPrimaryAbility,
+    thisChar.imgUrl = updatedChar.editImgUrl,
+    thisChar.playerName = updatedChar.editPlayerName
+
 
     res.status(200).send(characters.characters)
-}
+};
 
 
 
@@ -58,7 +60,6 @@ const deleteChar = (req, res) => {
     const {id} = req.params;
     
     characters.characters = characters.characters.filter((characters) => characters.id !== +id)
-    console.log(characters.characters)
     res.status(200).send(characters.characters)
 }
 
