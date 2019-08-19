@@ -1,7 +1,7 @@
 .main-character-display-card {
     width: 50%;
     min-height: 50%;
-    background: white;
+    background: #172A3A;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -11,37 +11,79 @@
 
 .character-display {
     width: 500px;
-    max-height: 500px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
-    background: blue;
+    background: #508991;
+    border-radius: 5%;
     
 }
 
 .character-name {
     font-size: 25px;
     font-family: 'Beth Ellen', cursive;
+    margin-top: 15px;
 
 }
 
 .character-image {
     max-height: 200px;
     max-width: 175px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
-.character-info {
+.character-outputs {
     width: 100%;
-    height: 20px;
+    height: 100px;
+    font-size: 30px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.character-info > .labels {
-    font-weight: bolder
+.buttons {
+    height: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.edit-form {
+        width: 500px;
+        min-height: 350px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 15px;
+        background: #508991;
+        border-radius: 5%;
+        
+}
+
+.character-inputs {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.edit-submit {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 15px;
 }

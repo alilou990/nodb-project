@@ -7,6 +7,7 @@ import axios from'axios';
 import Characters from './Components/Characters/Characters'
 import Navbar from './Components/Navbar/Navbar'
 import CharacterCreator from './Components/CreateCharacter/CharacterCreator'
+import Footer from './Components/Footer/Footer'
 
 //import stylesheets
 import 'reset-css'
@@ -20,10 +21,8 @@ export default class App extends Component {
       characters: [],
       charName: '',
       charClass: '',
-      hitDie: '',
       primaryAbility: '',
-      imgUrl: '',
-      playerName: ''
+      imgUrl: ''
     }
   }
   
@@ -48,25 +47,25 @@ export default class App extends Component {
       const body = {
       charName: this.state.charName,
       charClass: this.state.charClass,
-      hitDie: this.state.hitDie,
       primaryAbility: this.state.primaryAbility,
       imgUrl: this.state.imgUrl,
-      playerName: this.state.playerName
     }
-
+    
     axios.post('/api/characters', body)
       .then(response => {
         this.setState({
           characters: response.data,
-          // charName: '',
-          // charClass: '',
-          // hitDie: '',
-          // primaryAbility: '',
-          // imgUrl: '',
-          // playerName: '',
+          charName: '',
+          charClass: '',
+          primaryAbility: '',
+          imgUrl: ''
         })
+          
       })
-
+      .catch((error) => {
+        console.log(error)
+      })
+      
   };
 
 
@@ -89,7 +88,6 @@ export default class App extends Component {
   }
 
   handleOnChange = (event) => {
-   console.log(event.target.value)
       this.setState({
         [event.target.name]: event.target.value
       })
@@ -98,16 +96,15 @@ export default class App extends Component {
   render(){
     const mappedCharacters = this.state.characters.map((character, index) => {
         return( 
-        <Characters character={character} key={index} updateChar={this.updateChar} deleteChar={this.deleteChar} handleOnChange={this.handleOnChange}/>
+        <Characters character={character} key={index} updateChar={this.updateChar} deleteChar={this.deleteChar} />
         )
       })
-
     return(
       <div className="character-container">
         <Navbar />
-        <CharacterCreator createChar={this.createChar} handleOnChange={this.handleOnChange} />
+        <CharacterCreator createChar={this.createChar} handleOnChange={this.handleOnChange} charName={this.state.charName} charClass={this.state.charClass} primaryAbility= {this.state.primaryAbility} imgUrl={this.state.imgUrl} />
         {mappedCharacters}
-        
+        <Footer />
       </div>
     )
   }
