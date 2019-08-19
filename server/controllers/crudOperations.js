@@ -51,7 +51,7 @@ const createChar = (req, res) => {
 
 
     res.status(200).send(characters)
-}
+};
 
 const updateChar = (req, res) => {
     const {id} = req.params;
